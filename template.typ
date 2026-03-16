@@ -178,6 +178,12 @@
       ]
     ]
     #counter(page).update(1)
+    // Left bar
+    #set page(background: {
+      align(left)[
+        #rect(fill: colors.primary, height: 100%, width: .5cm)
+      ]
+    })
     #body
   ]
 }
