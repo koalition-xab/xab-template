@@ -186,6 +186,17 @@
       ]
     })
     #body
+    #pagebreak()
+    = Haftungsausschluss
+    Dieses Dokument wird unter Ausschluss jeglicher Gewährleistung zur Verfügung
+    gestellt. Die Autoren übernehmen keine Haftung für die inhaltliche Richtigkeit,
+    Vollständigkeit oder Aktualität der Informationen. Insbesondere wird keine
+    Garantie für das Erreichen bestimmter Noten oder Prüfungsergebnisse übernommen.
+    Die Nutzung der Inhalte erfolgt auf eigene Gefahr.
+
+    = Spenden
+    Aufgrund betrieblicher Organistaion werden zurzeit keine Spenden über digitale Wege
+    entgegengenommen. Spenden werden daher nur über bares Geld angenommen.
   ]
 }
 
