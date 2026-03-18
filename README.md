@@ -9,7 +9,7 @@ Typst template package for all XAB helpers
 run the following command in your terminal:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-linux.sh | bash
 ```
 
 ### Windows
@@ -17,13 +17,13 @@ curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/ins
 run the following command in git bash:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 | bash
 ```
 
 or you can also run the following command in powershell/cmd
 
 ```pwsh
-iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.ps1 -UseBasicParsing | iex
+iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 -UseBasicParsing | iex
 ```
 
 ## Usage Example
