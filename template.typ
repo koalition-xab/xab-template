@@ -54,7 +54,7 @@
 #let xab-helper(
   subject,
   test_name,
-  title: "Zusammenfassung",
+  title: "HELPER",
   doc_version: "v1.0",
   logo_type: "FULL",
   config: default-config,
