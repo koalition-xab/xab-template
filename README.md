@@ -2,6 +2,30 @@
 
 Typst template package for all XAB helpers
 
+## INSTALL / SETUP
+
+### Linux
+
+run the following command in your terminal:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.sh | bash
+```
+
+### Windows
+
+run the following command in git bash:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.sh | bash
+```
+
+or you can also run the following command in powershell/cmd
+
+```pwsh
+iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install.ps1 -UseBasicParsing | iex
+```
+
 ## Usage Example
 
 ```typ
