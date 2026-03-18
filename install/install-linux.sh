@@ -12,6 +12,9 @@ VERSION="1.0.0"
 
 ########## SCRIPT ##########
 git clone $LINK $DESTINATION$VERSION
+cd xab-template
+git submodule init
+git submodule update
 
 ########## FINISH ##########
 echo "#################### All done :) ####################"
