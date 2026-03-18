@@ -195,7 +195,7 @@
     Die Nutzung der Inhalte erfolgt auf eigene Gefahr.
 
     = Spenden
-    Aufgrund betrieblicher Organistaion werden zurzeit keine Spenden über digitale Wege
+    Aufgrund betrieblicher Organisation werden zurzeit keine Spenden über digitale Wege
     entgegengenommen. Spenden werden daher nur über bares Geld angenommen.
   ]
 }
