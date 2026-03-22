@@ -30,6 +30,14 @@ iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/in
 
 Running the script again updates your existing template installation.
 
+## Fonts
+
+XAB helper template requires following fonts:
+
+- Open Sans
+- Montserrat
+- STIX Two Math
+
 ## Usage Example
 
 ```typ
