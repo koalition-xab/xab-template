@@ -26,6 +26,14 @@ or you can also run the following command in powershell/cmd
 iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 -UseBasicParsing | iex
 ```
 
+## Fonts
+
+XAB helper template requires following fonts:
+
+- Open Sans
+- Montserrat
+- STIX Two Math
+
 ## Usage Example
 
 ```typ

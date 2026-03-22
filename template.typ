@@ -2,6 +2,8 @@
 
 #let default-config = (
   font: "Open Sans",
+  headingFont: "Montserrat",
+  mathFont: "STIX Two Math",
   margins: 1.5cm,
   radius: 4pt,
   font_sizes: (
@@ -75,11 +77,13 @@
     title: test_name,
   )
   set text(font: config.font, lang: "de", size: config.font_sizes.text)
-  show heading: set text(font: "Montserrat")
+  show heading: set text(font: config.headingFont)
   show link: set text(fill: blue)
   show link: underline
   set page(margin: 2cm, numbering: "1")
   set heading(numbering: "1.1")
+  show math.equation: set text(font: config.mathFont, size: 13pt)
+  show math.equation.where(block: false): set text(bottom-edge: "bounds", top-edge: "bounds")
 
   // ------------------ TABLE STYLES ------------------
 
