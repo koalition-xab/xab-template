@@ -6,11 +6,11 @@
     "DSAI_VENG": "#7287fd",
     "NWTK": "#1e66f5",
     "GGP": "#04a5e5",
-    "CH": "#40a02b",
-    "PH": "#179299",
-    "EN": "#df8e1d",
+    "CHEMIE": "#40a02b",
+    "PHYSIK": "#179299",
+    "ENGLISCH": "#df8e1d",
     "SEW": "#fe640b",
-    "SYT": "#dd7878",
-    "DE": "#8839ef",
+    "SYST": "#dd7878",
+    "DEUTSCH": "#8839ef",
     "ITSI": "#209fb5"
 }
