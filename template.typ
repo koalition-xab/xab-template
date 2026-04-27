@@ -1,4 +1,5 @@
 #import "@preview/showybox:2.0.4": showybox
+#import "@preview/itemize:0.2.0" as el
 
 #let default-config = (
   font: "Open Sans",
@@ -84,6 +85,14 @@
   set heading(numbering: "1.1")
   show math.equation: set text(font: config.mathFont, size: 13pt)
   show math.equation.where(block: false): set text(bottom-edge: "bounds", top-edge: "bounds")
+
+  set par(justify: true)
+  show heading: h => block(h, below: 8pt, above: 16pt)
+  show heading.where(level: 1): h => block(h, below: 16pt, above: 32pt)
+  show heading.where(level: 2): h => block(h, below: 10pt, above: 24pt)
+  set terms(separator: [ ... ])
+  show list: el.default-enum-list
+  show enum: el.default-enum-list
 
   // ------------------ TABLE STYLES ------------------
 
@@ -212,25 +221,25 @@
 // ------------------ COMPONENTS ------------------
 
 #let info = showybox.with(title: "Info", frame: (
-  body-color: blue.lighten(80%),
-  title-color: blue.lighten(20%),
-  border-color: blue.darken(40%),
+  body-color: rgb("#0284c7").lighten(92%),
+  title-color: rgb("#0284c7"),
+  border-color: rgb("#0284c7"),
 ))
 
 #let example = showybox.with(
   title: "Beispiel",
   frame: (
-    body-color: green.lighten(90%),
-    title-color: green.darken(30%),
-    border-color: green.darken(70%),
+    body-color: rgb("#059669").lighten(92%),
+    title-color: rgb("#059669"),
+    border-color: rgb("#059669"),
   ),
 )
 
 #let danger = showybox.with(
   title: "Achtung",
   frame: (
-    body-color: orange.lighten(90%),
-    title-color: orange.darken(30%),
-    border-color: orange.darken(70%),
+    body-color: rgb("#ea580c").lighten(92%),
+    title-color: rgb("#ea580c"),
+    border-color: rgb("#ea580c"),
   ),
 )

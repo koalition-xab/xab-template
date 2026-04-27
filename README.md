@@ -2,6 +2,8 @@
 
 Typst template package for all XAB helpers
 
+Look in /demo to see the features in action.
+
 ## INSTALL / UPDATE
 
 ### Linux
