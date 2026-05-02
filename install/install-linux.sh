@@ -66,6 +66,7 @@ UNINSTALL=false
 FORCE=false
 YES=false
 CHECK=false
+REQUIRED_FONTS=("Open Sans" "Montserrat" "STIX Two Math")
 
 ########## HELPERS ##########
 usage() {
@@ -104,6 +105,28 @@ print_submodule_issues() {
             U) echo -e "    ${DIM}${path}: has unresolved merge conflicts${NC}" ;;
         esac
     done <<< "$1"
+}
+
+check_fonts() {
+    if ! command -v fc-list &>/dev/null; then
+        warn "Cannot check fonts: fc-list not available (install fontconfig)"
+        return
+    fi
+    local families; families=$(fc-list : family 2>/dev/null)
+    local missing=()
+    for font in "${REQUIRED_FONTS[@]}"; do
+        if ! echo "$families" | grep -qi "$font"; then
+            missing+=("$font")
+        fi
+    done
+    if [ ${#missing[@]} -eq 0 ]; then
+        success "All required fonts are installed"
+    else
+        warn "Missing required fonts:"
+        for font in "${missing[@]}"; do
+            echo -e "    ${DIM}• ${font}${NC}"
+        done
+    fi
 }
 
 print_summary() {
@@ -168,6 +191,7 @@ if [ "$CHECK" = true ]; then
     if [ "$remote_sha" = "$local_sha" ] && [ -z "$submodule_issues" ]; then
         success "Installation complete — everything is up to date"
     fi
+    check_fonts
     echo ""
     exit 0
 fi
@@ -208,6 +232,7 @@ if [ -d "$TARGET/.git" ]; then
 
     if [ -z "$local_changes" ] && [ -z "$submodule_issues" ] && [ "$needs_pull" = false ]; then
         success "Already up to date — installation complete (${local_sha:0:7})"
+        check_fonts
         echo ""
         exit 0
     fi
@@ -268,5 +293,6 @@ fi
 
 ########## FINISH ##########
 print_summary
+check_fonts
 echo -e "${GREEN}#################### All done :) ####################${NC}"
 echo ""

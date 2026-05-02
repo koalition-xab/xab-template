@@ -94,6 +94,28 @@ function Show-Usage {
     Write-Host "  -Path <dir>    Custom install path"
 }
 
+function Invoke-FontCheck {
+    $systemFonts = "$env:SystemRoot\Fonts"
+    $userFonts   = "$env:LOCALAPPDATA\Microsoft\Windows\Fonts"
+    $missing = @()
+    foreach ($font in $RequiredFonts) {
+        $found = $false
+        foreach ($dir in @($systemFonts, $userFonts)) {
+            if ((Test-Path $dir) -and (Get-ChildItem $dir -ErrorAction SilentlyContinue |
+                Where-Object { $_.BaseName -like "*$($font.Pattern)*" })) {
+                $found = $true; break
+            }
+        }
+        if (-not $found) { $missing += $font.Name }
+    }
+    if ($missing.Count -eq 0) {
+        Write-Ok "All required fonts are installed"
+    } else {
+        Write-Warn "Missing required fonts:"
+        $missing | ForEach-Object { Write-Host "      • $_" -ForegroundColor DarkGray }
+    }
+}
+
 function Print-Summary {
     $version = (git -C $TARGET describe --tags --always 2>$null)
     if (-not $version) { $version = (git -C $TARGET rev-parse --short HEAD) }
@@ -113,6 +135,11 @@ $LINK        = "https://github.com/koalition-xab/xab-template.git"
 $VERSION     = "1.0.0"
 $DESTINATION = if ($Path -ne "") { "$Path\" } else { "$env:APPDATA\typst\packages\local\xab-template\" }
 $TARGET      = "$DESTINATION$VERSION"
+$RequiredFonts = @(
+    @{ Name = "Open Sans";     Pattern = "OpenSans" },
+    @{ Name = "Montserrat";    Pattern = "Montserrat" },
+    @{ Name = "STIX Two Math"; Pattern = "STIXTwoMath" }
+)
 
 ########## SCRIPT ##########
 if ($Help) { Show-Usage; exit 0 }
@@ -152,6 +179,7 @@ if ($Check) {
     if (($localSha -eq $remoteSha) -and (-not $submoduleIssues)) {
         Write-Ok "Installation complete — everything is up to date"
     }
+    Invoke-FontCheck
     Write-Host ""
     exit 0
 }
@@ -192,6 +220,7 @@ if (Test-Path "$TARGET\.git") {
 
     if ((-not $localChanges) -and (-not $submoduleIssues) -and (-not $needsPull)) {
         Write-Ok "Already up to date — installation complete ($($localSha.Substring(0,7)))"
+        Invoke-FontCheck
         Write-Host ""
         exit 0
     }
@@ -250,5 +279,6 @@ if (Test-Path "$TARGET\.git") {
 
 ########## FINISH ##########
 Print-Summary
+Invoke-FontCheck
 Write-Host "#################### All done :) ####################" -ForegroundColor Green
 Write-Host ""
