@@ -8,29 +8,64 @@ Look in /demo to see the features in action.
 
 ### Linux
 
-run the following command in your terminal:
+Run the following command in your terminal:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-linux.sh | bash
 ```
 
-Running the script again updates your existing template installation.
+Running the script again checks for updates and repairs any submodule issues.
+
+<details>
+<summary>Using flags</summary>
+
+Download the script once to use flags:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-linux.sh -o xab-install.sh
+chmod +x xab-install.sh
+./xab-install.sh --help
+```
+
+| Flag | Description |
+|---|---|
+| `-c, --check` | Check install health and available updates without modifying anything |
+| `-u, --uninstall` | Remove the installed template |
+| `-f, --force` | Remove existing installation and reinstall from scratch |
+| `-y, --yes` | Skip all confirmation prompts (useful for CI/automation) |
+| `-p, --path DIR` | Install to a custom path instead of the default |
+
+</details>
 
 ### Windows
 
-run the following command in git bash:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 | bash
-```
-
-or you can also run the following command in powershell/cmd
+Run the following command in PowerShell:
 
 ```pwsh
 iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 -UseBasicParsing | iex
 ```
 
-Running the script again updates your existing template installation.
+Running the script again checks for updates and repairs any submodule issues.
+
+<details>
+<summary>Using flags</summary>
+
+Download the script once to use flags:
+
+```pwsh
+iwr https://raw.githubusercontent.com/koalition-xab/xab-template/main/install/install-windows.ps1 -OutFile xab-install.ps1
+.\xab-install.ps1 -Help
+```
+
+| Flag | Description |
+|---|---|
+| `-Check` | Check install health and available updates without modifying anything |
+| `-Uninstall` | Remove the installed template |
+| `-Force` | Remove existing installation and reinstall from scratch |
+| `-Yes` | Skip all confirmation prompts (useful for CI/automation) |
+| `-Path <dir>` | Install to a custom path instead of the default |
+
+</details>
 
 ## Fonts
 
