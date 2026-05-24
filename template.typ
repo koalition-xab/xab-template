@@ -106,7 +106,7 @@
     }
     let chld = fields.remove("children")
 
-    box(
+    block(
       radius: config.radius,
       clip: true,
       stroke: 1pt,
