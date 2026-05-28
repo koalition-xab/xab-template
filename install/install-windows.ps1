@@ -23,7 +23,11 @@ function Invoke-WithSpinner {
 
     $tmpErr = [System.IO.Path]::GetTempFileName()
 
-    $proc = Start-Process -FilePath "git" -ArgumentList $GitArgs `
+    $quotedArgs = $GitArgs | ForEach-Object {
+        if ($_ -match '[\s"`]') { '"' + ($_ -replace '"', '``"') + '"' } else { $_ }
+    }
+
+    $proc = Start-Process -FilePath "git" -ArgumentList ($quotedArgs -join ' ') `
         -RedirectStandardOutput "NUL" -RedirectStandardError $tmpErr `
         -NoNewWindow -PassThru
 
